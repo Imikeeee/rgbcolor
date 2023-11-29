@@ -1,0 +1,38 @@
+﻿<Window x:Class="YourNamespace.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RGB Color Mixer" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <Slider x:Name="sliderRed" Width="200" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+            <TextBlock Text="{Binding ElementName=sliderRed, Path=Value}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
+            <Slider x:Name="sliderGreen" Width="200" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+            <TextBlock Text="{Binding ElementName=sliderGreen, Path=Value}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5">
+            <Slider x:Name="sliderBlue" Width="200" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+            <TextBlock Text="{Binding ElementName=sliderBlue, Path=Value}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <Rectangle x:Name="rectangleColor" Grid.Row="3" Width="200" Height="50" Margin="5"/>
+
+        <Button Grid.Row="4" Content="Add Color" Click="btnAddColor_Click" HorizontalAlignment="Left" Margin="5,5,0,25" Width="80"/>
+        <Button Grid.Row="4" Content="Save to File" Click="btnSaveToFile_Click" HorizontalAlignment="Left" Margin="318,0,0,10" Width="80"/>
+        <Button Grid.Row="4" Content="Load from File" Click="btnLoadFromFile_Click" HorizontalAlignment="Left" Margin="218,0,0,10" Width="80"/>
+        <Button Grid.Row="4" Content="Save Colors to CSV" Click="btnSaveColorsToCSV_Click" HorizontalAlignment="Left" Margin="90,5,0,25" Width="80"/>
+
+        <ListBox x:Name="listBoxColors" Grid.Row="4" Margin="0,90,10,-80" Height="100" MouseDoubleClick="listBoxColors_MouseDoubleClick"/>
+    </Grid>
+</Window>
